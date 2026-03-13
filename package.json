@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
-    "@edgeone/astro": "1.0.6",
+    "@astrojs/vercel": "^8.0.0",
     "@giscus/react": "^3.1.0",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
@@ -27,9 +27,6 @@
   "overrides": {
     "astro": "6.0.0-alpha.0",
     "@astrojs/vercel": {
-      "astro": "6.0.0-alpha.0"
-    },
-    "@edgeone/astro": {
       "astro": "6.0.0-alpha.0"
     }
   }
