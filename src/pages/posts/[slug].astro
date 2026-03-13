@@ -11,12 +11,7 @@ export async function getStaticPaths() {
   const posts = (await getCollection("posts")) as any[];
   return posts
     .map((post) => {
-      // Get slug from post - try multiple fallbacks
-      let slug = post.slug;
-      if (!slug && post.id) {
-        // Extract slug from id (e.g., "posts/my-post.md" -> "my-post")
-        slug = post.id.split("/").pop()?.replace(/\.md$/, "") || "";
-      }
+      const slug = getSlugFromPost(post);
       if (!slug) {
         console.warn("Post missing slug in getStaticPaths:", post);
         return null;
@@ -29,14 +24,30 @@ export async function getStaticPaths() {
     .filter(Boolean);
 }
 
-interface Props {
-  post: any;
+function getSlugFromPost(post: any): string | undefined {
+  if (post.slug) return post.slug;
+  if (post.id) {
+    const base = post.id.split("/").pop()?.replace(/\.md$/, "");
+    return base || undefined;
+  }
+  return undefined;
 }
 
-const { post } = Astro.props;
+interface Props {
+  post?: any;
+}
+
+let post = Astro.props.post;
+
+// Server/on-demand: getStaticPaths is ignored (output: "server"), so resolve post by slug
+if (!post && Astro.params.slug) {
+  const slug = Astro.params.slug;
+  const all = (await getCollection("posts")) as any[];
+  post = all.find((p) => getSlugFromPost(p) === slug) ?? null;
+}
 
 if (!post) {
-  throw new Error("Post is undefined");
+  throw new Error("Post not found: " + (Astro.params.slug ?? "(no slug)"));
 }
 
 // With glob loader in Astro 6.0, post has:
