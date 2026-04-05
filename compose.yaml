@@ -1,0 +1,140 @@
+# ============================================================
+# Docker Compose for Astro.js Portfolio
+# ============================================================
+# Usage:
+#   Development: docker compose --profile dev up
+#   Production:  docker compose --profile prod up
+#   All:         docker compose up
+# ============================================================
+
+name: fran-portfolio
+
+services:
+  # ============================================================
+  # DEVELOPMENT SERVICE
+  # Hot-reload enabled for local development
+  # Usage: docker compose --profile dev up
+  # ============================================================
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: fran-portfolio-dev
+    profiles:
+      - dev
+    ports:
+      - "4321:4321"
+    volumes:
+      # Mount source code for hot-reload
+      - .:/app
+      # Preserve node_modules inside container
+      - /app/node_modules
+      # Preserve .astro cache
+      - /app/.astro
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4321
+    restart: unless-stopped
+    networks:
+      - dev-network
+    # Enable TTY for better interactive debugging
+    tty: true
+    stdin_open: true
+
+  # ============================================================
+  # PRODUCTION SERVICE (Build + Run)
+  # Builds the project and serves optimized production build
+  # Usage: docker compose --profile prod up
+  # ============================================================
+  prod-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: fran-portfolio-builder
+    profiles:
+      - prod
+    volumes:
+      # Mount build output to share with production service
+      - prod-build-output:/app/dist
+    environment:
+      - NODE_ENV=production
+    networks:
+      - prod-network
+
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: fran-portfolio-prod
+    profiles:
+      - prod
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=4321
+      # Add your production environment variables here
+      # - API_URL=https://api.yourdomain.com
+      # - ANALYTICS_ID=your-analytics-id
+    depends_on:
+      - prod-builder
+    restart: unless-stopped
+    networks:
+      - prod-network
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4321/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # ============================================================
+  # PRODUCTION SERVICE (Pre-built)
+  # Use this if you build locally before running compose
+  # Usage: docker compose --profile prod-prebuilt up
+  # ============================================================
+  prod-prebuilt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: fran-portfolio-prod-prebuilt
+    profiles:
+      - prod-prebuilt
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=4321
+    restart: unless-stopped
+    networks:
+      - prod-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4321/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# ============================================================
+# VOLUMES
+# ============================================================
+volumes:
+  prod-build-output:
+    driver: local
+
+# ============================================================
+# NETWORKS
+# ============================================================
+networks:
+  dev-network:
+    driver: bridge
+  prod-network:
+    driver: bridge

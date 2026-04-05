@@ -30,3 +30,6 @@ pnpm-debug.log*
 # vercel deployment output
 .vercel/
 package-lock.json
+
+# qwen code
+.qwen/
