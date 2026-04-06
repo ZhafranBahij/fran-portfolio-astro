@@ -7,31 +7,7 @@ import "../../styles/page-transitions.css";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
 
-function getSlugFromPost(post: any): string | undefined {
-  if (post.slug) return post.slug;
-  if (post.id) {
-    const base = post.id.split("/").pop()?.replace(/\.md$/, "");
-    return base || undefined;
-  }
-  return undefined;
-}
-
-export async function getStaticPaths() {
-  const posts = (await getCollection("posts")) as any[];
-  return posts
-    .map((post) => {
-      const slug = getSlugFromPost(post);
-      if (!slug) {
-        console.warn("Post missing slug in getStaticPaths:", post);
-        return null;
-      }
-      return {
-        params: { slug },
-        props: { post },
-      };
-    })
-    .filter(Boolean);
-}
+export const prerender = false;
 
 interface Props {
   post?: any;
@@ -39,11 +15,14 @@ interface Props {
 
 let post = Astro.props.post;
 
-// Server/on-demand: getStaticPaths is ignored (output: "server"), so resolve post by slug
+// Resolve post by slug if not provided
 if (!post && Astro.params.slug) {
   const slug = Astro.params.slug;
-  const all = (await getCollection("posts")) as any[];
-  post = all.find((p) => getSlugFromPost(p) === slug) ?? null;
+  const all = await getCollection("posts") as any[];
+  post = all.find((p: any) => {
+    const pSlug = p.slug || p.id?.split("/").pop()?.replace(/\.md$/, "");
+    return pSlug === slug;
+  }) ?? null;
 }
 
 if (!post) {
