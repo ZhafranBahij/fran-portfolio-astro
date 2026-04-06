@@ -57,10 +57,12 @@ import { projectsConfig } from "../config/projects";
                   ))}
                 </div>
                 <div class="project-links">
-                  <a href={project.liveLink} class="project-link">
-                    Live <span style="font-size: 1.2rem;">→</span>
-                  </a>
-                  <a href={project.githubLink} class="project-link">
+                  {project.liveLink !== '#' && (
+                    <a href={project.liveLink} class="project-link" target="_blank" rel="noopener noreferrer">
+                      Live <span style="font-size: 1.2rem;">→</span>
+                    </a>
+                  )}
+                  <a href={project.githubLink} class="project-link" target="_blank" rel="noopener noreferrer">
                     GitHub <span style="font-size: 1.2rem;">→</span>
                   </a>
                 </div>

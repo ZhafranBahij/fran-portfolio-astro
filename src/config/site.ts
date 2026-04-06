@@ -1,10 +1,10 @@
 // Site-wide configuration
 export const siteConfig = {
   // Site metadata
-  name: "Astro Blog",
-  title: "Astro Blog",
-  description: "A modern blog built with Astro",
-  
+  name: "Zhafran Bahij",
+  title: "Zhafran Bahij - Fullstack Developer",
+  description: "Fullstack Developer specializing in Laravel & React JS with experience in 50+ libraries",
+
   // Navigation
   navigation: {
     home: "Home",
@@ -12,31 +12,30 @@ export const siteConfig = {
     contact: "Contact",
     comments: "Comments",
   },
-  
+
   // Hero Section
   hero: {
     prefix: "I am",
-    name: "Someone Name",
-    intro: "I am a web developer and blogger, passionate about sharing knowledge and building cool things with code.\nWelcome to my portfolio blog!",
-    avatar: "/image/20943608.jpeg",
+    name: "Zhafran Bahij",
+    intro: "A Fullstack Developer specializing in Laravel and React JS, with hands-on experience across 50+ libraries. I'm a quick learner who thrives on adapting to new technologies and building innovative solutions.\nWelcome to my portfolio!",
+    avatar: "/image/profile.jpg",
     buttons: {
       viewPosts: "View Posts",
       contactMe: "Contact Me",
     },
     socialLinks: [
-      { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/astrodotbuild" },
-      { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/company/astrodotbuild" },
-      { name: "Facebook", icon: "/svg/facebook.svg", url: "https://www.facebook.com/astrodotbuild" },
-      { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tomcomtang/astro-cartoon-portfolio" },
+      { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/BahijZhafr91324" },
+      { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/in/m-zhafran-bahij-6021171b8" },
+      { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/ZhafranBahij" },
     ],
   },
-  
+
   // About Section
   about: {
     title: "About Me",
-    text: "Hi, I'm Someone, a passionate web developer and blogger. I love exploring new technologies and sharing knowledge with the community. On this blog, you'll find my thoughts on web development, tutorials, and project showcases. I hope my content can inspire others in their coding journey.",
+    text: "Hi, I'm Zhafran Bahij, a passionate Fullstack Developer with a strong foundation in Laravel and React JS. Throughout my journey, I've experimented with over 50 libraries and frameworks, giving me the flexibility to adapt to new technologies quickly. I love turning complex problems into elegant, user-friendly solutions and continuously expanding my skill set to stay at the forefront of web development.",
   },
-  
+
   // Contact Page
   contact: {
     title: "Get In Touch",
@@ -44,8 +43,8 @@ export const siteConfig = {
     info: {
       email: {
         label: "Email",
-        value: "tom@example.com",
-        link: "mailto:tom@example.com",
+        value: "zhafran@example.com",
+        link: "mailto:zhafran@example.com",
       },
       phone: {
         label: "Phone",
@@ -54,16 +53,15 @@ export const siteConfig = {
       },
       location: {
         label: "Location",
-        value: "San Francisco, CA",
+        value: "Available Worldwide",
       },
     },
     followMe: {
       title: "Follow Me",
       links: [
-        { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/astrodotbuild" },
-        { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/company/astrodotbuild" },
-        { name: "Facebook", icon: "/svg/facebook.svg", url: "https://www.facebook.com/astrodotbuild" },
-        { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tomcomtang/astro-cartoon-portfolio" },
+        { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/BahijZhafr91324" },
+        { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/in/m-zhafran-bahij-6021171b8" },
+        { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/ZhafranBahij" },
       ],
     },
     footerText: [
@@ -72,10 +70,10 @@ export const siteConfig = {
     ],
     messageButton: "💬 Leave a Message",
   },
-  
+
   // Footer
   footer: {
-    copyright: "© 2025 Someone. All rights reserved.",
+    copyright: "© 2025 Zhafran Bahij. All rights reserved.",
     links: [
       { text: "Privacy Policy", url: "#" },
       { text: "Terms of Service", url: "#" },
@@ -83,17 +81,17 @@ export const siteConfig = {
     ],
     github: {
       text: "Star this project on Github",
-      url: "https://github.com/tomcomtang/astro-cartoon-portfolio",
+      url: "https://github.com/ZhafranBahij",
     },
   },
-  
+
   // Posts Page
   posts: {
     title: "Blog Posts",
-    subtitle: "Explore our latest articles on web development, design, and technology",
+    subtitle: "Explore my latest articles on web development, design, and technology",
     searchPlaceholder: "Search posts...",
   },
-  
+
   // Comments Page
   comments: {
     title: "Comments & Discussion",
@@ -111,4 +109,3 @@ export const siteConfig = {
     },
   },
 };
-

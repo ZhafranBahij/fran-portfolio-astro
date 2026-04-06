@@ -7,92 +7,55 @@ export const projectsConfig = {
     "/svg/project4.svg",
     "/svg/project5.svg",
     "/svg/project6.svg",
-    "/svg/project7.svg",
-    "/svg/project8.svg",
-    "/svg/project9.svg",
-    "/svg/project10.svg",
   ],
   projects: [
     {
-      title: "E-Commerce Platform",
+      title: "Laravel Livewire Starter Template",
       description:
-        "A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+        "A clean and modern starter template for rapidly building Laravel applications with Livewire. Includes authentication, layouts, and essential configurations to kickstart your next project with best practices.",
+      technologies: ["Laravel", "Livewire", "Blade", "Vite", "Tailwind CSS"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/ZhafranBahij/template-laravel-livewire",
     },
     {
-      title: "Task Management App",
+      title: "Fran HRIS - Human Resource Information System",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features for enhanced productivity.",
-      technologies: ["Vue.js", "Firebase", "Vuex", "Vuetify"],
-      liveLink: "#",
-      githubLink: "#",
+        "A comprehensive HRIS built with Laravel Filament v4 featuring employee management, attendance tracking, leave workflows, performance evaluations, recruitment, and role-based access control with approval systems.",
+      technologies: ["Laravel 11", "Filament v4", "Spatie Shield", "MySQL", "Excel Export"],
+      liveLink: "https://fran-hris.zhafranbahij.my.id/",
+      githubLink: "https://github.com/ZhafranBahij/fran-hris",
     },
     {
-      title: "Portfolio Website",
+      title: "Laravel OCR Space (Contribution)",
       description:
-        "A modern, responsive portfolio website built with Astro and styled-components. Features smooth animations and SEO optimization for better visibility.",
-      technologies: ["Astro", "Styled-components", "TypeScript", "Netlify"],
-      liveLink: "#",
-      githubLink: "#",
+        "A Laravel package wrapper for the OCR.Space API, enabling Optical Character Recognition directly in Laravel applications. Supports multiple input types, 3 OCR engines, and configurable options for text extraction from images.",
+      technologies: ["Laravel", "OCR.Space API", "Composer", "PHP 8+", "REST API"],
+      liveLink: "https://packagist.org/packages/cdsmths/laravel-ocr-space",
+      githubLink: "https://github.com/cdsmths/laravel-ocr-space",
     },
     {
-      title: "Social Media Dashboard",
+      title: "Velstore - Multi-Vendor eCommerce (Contribution)",
       description:
-        "A comprehensive social media analytics dashboard with real-time data visualization, engagement metrics, and content scheduling features for businesses.",
-      technologies: ["React", "TypeScript", "Chart.js", "REST API"],
-      liveLink: "#",
-      githubLink: "#",
+        "A free, open-source multi-vendor Laravel eCommerce solution with Admin, Seller, and Customer panels. Features multi-lingual support (19 languages), integrated PayPal/Stripe payments, and modular extensible architecture.",
+      technologies: ["Laravel 10", "MySQL", "Sanctum", "PayPal", "Stripe", "Yajra DataTables"],
+      liveLink: "https://velstorelabs.github.io/velstore/",
+      githubLink: "https://github.com/velstorelabs/velstore",
     },
     {
-      title: "Fitness Tracking App",
+      title: "Kolosal AI File Processing API (Hackathon - Project Manager)",
       description:
-        "A mobile-first fitness tracking application with workout plans, progress tracking, and social sharing capabilities to help users stay motivated.",
-      technologies: ["React Native", "Firebase", "Redux", "Expo"],
+        "A Flask-based backend API that processes images, PDFs, videos, and text using Kolosal AI for content analysis. As Project Manager, I coordinated the team and oversaw development of this AI-powered file processing system.",
+      technologies: ["Python", "Flask", "Kolosal AI API", "OpenCV", "PyPDF2", "Pillow"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/ZhafranBahij/PROJECCT_HACKATHON",
     },
     {
-      title: "Recipe Sharing Platform",
+      title: "Fran Filament - Laravel Admin Panel",
       description:
-        "An interactive recipe sharing platform where users can discover, create, and share their favorite recipes with the community worldwide.",
-      technologies: ["Next.js", "PostgreSQL", "Prisma", "AWS"],
+        "A robust admin panel and starter kit built with Laravel Filament v4 featuring user management, role-based access control, health monitoring, log viewer, export/import functionality, and real-time performance tracking with Laravel Pulse.",
+      technologies: ["Laravel", "Filament v4", "Spatie Media Library", "Filament Shield", "Laravel Pulse"],
       liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "E-Learning Platform",
-      description:
-        "A comprehensive e-learning platform with video courses, interactive quizzes, progress tracking, and certificate generation for online education.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "Weather Forecast App",
-      description:
-        "A beautiful weather forecast application with location-based forecasts, detailed weather maps, and customizable widgets for accurate weather information.",
-      technologies: ["Vue.js", "OpenWeather API", "Chart.js", "PWA"],
-      liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "Music Streaming Service",
-      description:
-        "A modern music streaming platform with personalized playlists, social features, and high-quality audio streaming for music enthusiasts worldwide.",
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS S3"],
-      liveLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "Project Management Tool",
-      description:
-        "An advanced project management tool with Gantt charts, team collaboration, time tracking, and comprehensive reporting for efficient project delivery.",
-      technologies: ["Angular", "NestJS", "PostgreSQL", "Docker"],
-      liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/ZhafranBahij/fran-filament",
     },
   ],
 };
-
