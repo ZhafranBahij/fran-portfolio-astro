@@ -7,6 +7,15 @@ import "../../styles/page-transitions.css";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
 
+function getSlugFromPost(post: any): string | undefined {
+  if (post.slug) return post.slug;
+  if (post.id) {
+    const base = post.id.split("/").pop()?.replace(/\.md$/, "");
+    return base || undefined;
+  }
+  return undefined;
+}
+
 export async function getStaticPaths() {
   const posts = (await getCollection("posts")) as any[];
   return posts
@@ -22,15 +31,6 @@ export async function getStaticPaths() {
       };
     })
     .filter(Boolean);
-}
-
-function getSlugFromPost(post: any): string | undefined {
-  if (post.slug) return post.slug;
-  if (post.id) {
-    const base = post.id.split("/").pop()?.replace(/\.md$/, "");
-    return base || undefined;
-  }
-  return undefined;
 }
 
 interface Props {
