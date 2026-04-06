@@ -36,6 +36,9 @@ services:
       - NODE_ENV=development
       - HOST=0.0.0.0
       - PORT=4321
+      # Enable polling for file changes (required for Docker on Windows/Mac)
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     restart: unless-stopped
     networks:
       - dev-network
